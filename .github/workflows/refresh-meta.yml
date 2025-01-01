@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Generate metadata.json
         run: |
@@ -21,7 +23,13 @@ jobs:
 
       - name: Update metadata branch
         run: |
-          git checkout -b metadata
+          if git show-ref --verify --quiet refs/remotes/origin/metadata; then
+              git checkout metadata
+              git pull origin metadata
+          else
+              git checkout --orphan metadata
+              git rm -rf .
+          fi
           git add metadata.json
           git config --global user.email "bot@eclipse.menu"
           git config --global user.name "Eclipse Menu Bot"
