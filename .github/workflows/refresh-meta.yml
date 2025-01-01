@@ -22,7 +22,8 @@ jobs:
       - name: Update metadata branch
         run: |
           if git show-ref --verify --quiet refs/heads/metadata; then
-              git checkout metadata
+              git checkout -b metadata
+              git pull origin metadata
           else
               git checkout --orphan metadata
               git rm -rf .
