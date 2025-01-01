@@ -5,10 +5,18 @@
    </p>
 </div>
 <div align="center">
-
+    <a title="Crowdin" target="_blank" href="https://crowdin.com/project/eclipse-menu">
+        <img src="https://badges.crowdin.net/eclipse-menu/localized.svg">
+    </a>
 </div>
 
 ## How to contribute
+### Crowdin translations
+1. Go to the [Crowdin project](https://crowdin.com/project/eclipse-menu)
+2. Sign in or create an account
+3. Start translating
+
+### Manual translations
 1. Fork this repository
 2. Add or edit translations in the `translations` folder (see [adding languages](#adding-languages) for more information)
 3. Create a pull request
