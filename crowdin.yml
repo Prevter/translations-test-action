@@ -1,8 +1,6 @@
 files:
   - source: /translations/en.lang.json
-    translation: /translations/%two_letters_code%.lang.json
-
-pull_request_title: "Update translations"
-
-commit_message: "Update %language% translations"
-append_commit_message: false
+    translation: /translations/%locale_with_underscore%.lang.json
+pull_request_title: Update translations
+commit_message: Update %language% translations
+append_commit_message: 
