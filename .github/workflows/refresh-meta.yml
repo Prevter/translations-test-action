@@ -21,8 +21,12 @@ jobs:
 
       - name: Update metadata branch
         run: |
-          git checkout --orphan metadata
-          git rm -rf .
+          if git show-ref --verify --quiet refs/heads/metadata; then
+              git checkout metadata
+          else
+              git checkout --orphan metadata
+              git rm -rf .
+          fi
           git add metadata.json
           git config --global user.email "bot@eclipse.menu"
           git config --global user.name "Eclipse Menu Bot"
