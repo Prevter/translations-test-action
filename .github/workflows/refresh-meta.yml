@@ -1,0 +1,32 @@
+name: Update Metadata
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  generate:
+    name: Generate metadata
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate metadata.json
+        run: |
+          echo "{\"timestamp\": $(date +%s), \"languages\": [$(ls translations/*.lang.json | sed 's/translations\///;s/.lang.json//;s/^/"/;s/$/"/' | paste -sd,)]}" > metadata.json
+
+      - name: Update metadata branch
+        run: |
+          git checkout --orphan metadata
+          git rm -rf .
+          git add metadata.json
+          git config --global user.email "bot@eclipse.menu"
+          git config --global user.name "Eclipse Menu Bot"
+          git commit -m "Update metadata"
+          git push origin metadata
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
