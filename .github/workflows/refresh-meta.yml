@@ -19,7 +19,7 @@ jobs:
 
       - name: Generate metadata.json
         run: |
-          echo "{\"timestamp\": $(date +%s), \"languages\": [$(ls translations/*.lang.json | sed 's/translations\///;s/.lang.json//;s/^/"/;s/$/"/' | paste -sd,)]}" > metadata.json
+          echo "{\"timestamp\": $(date +%s), \"languages\": [$(ls translations/*.lang.json | sed 's/translations\///;s/.lang.json//;s/^/"/;s/$/"/' | paste -sd,)]}" > ../metadata.json
 
       - name: Update metadata branch
         run: |
@@ -30,6 +30,7 @@ jobs:
               git checkout --orphan metadata
               git rm -rf .
           fi
+          mv ../metadata.json metadata.json
           git add metadata.json
           git config --global user.email "bot@eclipse.menu"
           git config --global user.name "Eclipse Menu Bot"
