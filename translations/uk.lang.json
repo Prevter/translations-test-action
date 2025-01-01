@@ -1,0 +1,22 @@
+{
+    "language-name": "Ukrainian",
+    "language-code": "uk",
+    "language-native": "Українська",
+    "language-charset": "cyrillic",
+    "common.create": "Створити",
+    "common.cancel": "Скасувати",
+    "common.warning": "Увага",
+    "common.error": "Помилка",
+    "common.info": "Інформація",
+    "common.ok": "OK",
+    "common.yes": "Так",
+    "common.no": "Ні",
+    "common.new": "Новий",
+    "common.save": "Зберегти",
+    "common.load": "Завантажити",
+    "common.delete": "Видалити",
+    "tab.bot": "Повтор",
+    "tab.bypass": "Обхід",
+    "tab.creator": "Редактор",
+    "tab.global": "Глобальне"
+}
