@@ -29,7 +29,7 @@ Metadata is stored at the top of the file, and contains the following fields:
 ```json5
 {
     "language-name": "English",    // The name of the language in English
-    "language-code": "en",         // The language code (ISO 639-1)
+    "language-code": "en_US",      // The language code 
     "language-native": "English",  // The name of the language in its native language
     "language-charset": "default", // The character set of the language
     "language-fallback": "en",     // The fallback language code (defaults to English)
@@ -55,9 +55,9 @@ Supported values are:
 
 This will tell Eclipse which font to use for the language.
 
-`language-fallback` is optional and defaults to `en`.
+`language-fallback` is optional and defaults to `en_US`.
 If a translation is missing for a key in the current language,
 Eclipse will fall back to the specified language.
-You can use this to avoid duplicating translations for similar languages (e.g. `es` and `pt`).
+You can use this to avoid duplicating translations for similar languages.
 
 > Note: this field is not recursive, so if a translation is missing in the fallback language, it will not fall back further.
